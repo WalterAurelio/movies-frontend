@@ -15,9 +15,9 @@ export function useRefreshToken() {
 
   const refresh = async () => {
     const res = await axios.get<RefreshTokenResponse>('/api/auth/refresh-token', {
-      headers: { 'Content-Type': 'application/json' },
       withCredentials: true
     });
+    console.log('Soy response en refresh', res);
     setAuth({ ...auth, accessToken: res.data.accessToken });
     return res.data.accessToken;
   }

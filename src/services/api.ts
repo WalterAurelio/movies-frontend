@@ -1,7 +1,7 @@
 import axios from '../api/axios';
 import { SignUpBody } from '../pages/SignUp';
 import { LogInBody } from '../pages/LogIn';
-import { DiscoverMoviesResponse, DiscoverMoviesFilters, MovieDetails, MovieVideos, MoviesGenres } from '../types/moviesTypes';
+import { DiscoverMoviesResponse, DiscoverMoviesFilters, MovieDetails, /* MovieVideos, */ MoviesGenres } from '../types/moviesTypes';
 import { AxiosInstance } from 'axios';
 import { ApiResponse, LogInResponse } from '../types/apiResponse';
 

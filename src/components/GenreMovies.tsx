@@ -1,9 +1,9 @@
-import MoviesRow from '../templates/MoviesRow'
+import MoviesByGenre from '../templates/MoviesByGenre'
 
 function GenreMovies() {
 
   return (
-    <MoviesRow />
+    <MoviesByGenre />
   )
 }
 export default GenreMovies

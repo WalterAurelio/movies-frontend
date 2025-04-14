@@ -38,7 +38,7 @@ export function useDiscoverMoviesPaginated(page: number, filters?: DiscoverMovie
   const axiosPrivate = useAxiosPrivate();
 
   return useQuery({
-    queryKey: ['discoverMovies', { page }],
+    queryKey: ['discoverMovies', { page, ...filters }],
     queryFn: () => discoverMovies(axiosPrivate, { pageParam: page, ...filters }),
     placeholderData: keepPreviousData
   });
@@ -64,7 +64,7 @@ export function useGetGenres() {
 
 ///
 
-export function useAddMovieToFavorite() {
+/* export function useAddMovieToFavorite() {
   const axiosPrivate = useAxiosPrivate();
 
   const addToFavorite = async (movieBody) => {
@@ -79,4 +79,4 @@ export function useAddMovieToFavorite() {
     mutationFn: addToFavorite,
     onSettled: (data) => {console.log('Soy on settled', data)}
   });
-}
+} */
