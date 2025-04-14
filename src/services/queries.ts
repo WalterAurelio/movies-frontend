@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery, keepPreviousData, useMutation } from '@tanstack/react-query';
-import { discoverMovies, getMovieDetails, getMovieGenres, signUp, logIn } from './api';
+import { signUp, logIn, discoverMovies, getMovieDetails, getMovieGenres, searchMovies } from './api';
 import { DiscoverMoviesFilters } from '../types/moviesTypes';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
@@ -59,6 +59,15 @@ export function useGetGenres() {
   return useQuery({
     queryKey: ['movieGenres'],
     queryFn: () => getMovieGenres(axiosPrivate)
+  });
+}
+
+export function useSearchMovies(query: string) {
+  const axiosPrivate = useAxiosPrivate();
+
+  return useQuery({
+    queryKey: ['searchMovies', { query }],
+    queryFn: () => searchMovies(axiosPrivate, query)
   });
 }
 
