@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useLogIn } from '../services/queries';
 import { useAuthProvider } from '../store/AuthProviderStore';
 import { useShallow } from 'zustand/shallow';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -24,6 +24,8 @@ function LogIn() {
   const { register, handleSubmit, formState: { isSubmitting, errors } } = useForm<LogInBody>({
     resolver: zodResolver(schema)
   });
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
   const onSubmit = async (data: LogInBody) => {
     try {
@@ -31,7 +33,8 @@ function LogIn() {
       console.log('Soy response', response);
       const accessToken = response.accessToken;
       setAuth({ ...auth, accessToken });
-      navigate({ pathname: '/' });
+      // navigate('/');
+      navigate(from, { replace: true });
     } catch (error) {
       console.log(error);
     }
