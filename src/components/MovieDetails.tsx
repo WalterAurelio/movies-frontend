@@ -1,5 +1,6 @@
 // CORRECTO (POR AHORA)
-import { useGetMovieDetails } from '../services/queries';
+import { useQuery } from '@tanstack/react-query';
+import { useGetMovieDetails, useGetMovieVideos } from '../services/queries';
 import Description from './Description';
 
 type MovieDetailsProps = {
@@ -7,25 +8,29 @@ type MovieDetailsProps = {
 }
 
 function MovieDetails({ movieId }: MovieDetailsProps) {
-  const { data, isLoading, error } = useGetMovieDetails(movieId);
-  const movie = data?.data;
+  const { data: detailsData, isLoading: detailsLoading, error: detailsError } = useGetMovieDetails(movieId);
+  const { data: videosData, isLoading: videosLoading, error: videosError } = useGetMovieVideos(movieId);
+  const movie = detailsData?.data;
   const movieBackdrop = 'https://image.tmdb.org/t/p/w500' + movie?.backdrop_path;
   const genres = movie?.genres?.map(genre => genre.name);
   const releaseYear = movie?.release_date?.split('-')[0];
-  const videoURL = '';
-  // const videos = data?.data.videos.results?.map(result => result.key);
-
-  /* const randomVideo = () => {
-    if (videos) {
-      const index = Math.floor(Math.random() * videos.length);
-      return videos[index];
+  const videos = videosData?.data.results?.map(video => {
+    if (video.site === 'YouTube' && video.type === 'Teaser' && video.key) {
+      return video.key;
     }
-    return '';
-  }
- */
+    return false;
+  }).filter(e => e !== false);
+  const videoURL = 'https://www.youtube.com/watch?v=';
 
-  if (isLoading) return <div>Cargando...</div>;
-  if (error) return <div>Ha ocurrido un error: {error.message}</div>;
+  function randomVideoKey() {
+    if (videos) {
+      const randomIndex = Math.floor(Math.random() * videos?.length);
+      return videos[randomIndex];
+    }
+  }
+
+  if (detailsLoading || videosLoading) return <div>Cargando...</div>;
+  if (detailsError || videosError) return <div>Ha ocurrido un error: {detailsError?.message || videosError?.message}</div>;
 
   return (
     <div>
@@ -43,7 +48,7 @@ function MovieDetails({ movieId }: MovieDetailsProps) {
         </div>
       </div>
       <Description>{movie?.overview}</Description>
-      <a href={videoURL} target='_blank'>
+      <a href={videoURL + randomVideoKey()} target='_blank'>
         <Description>Ver video</Description>
       </a>
     </div>

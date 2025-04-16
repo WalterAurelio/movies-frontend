@@ -21,5 +21,5 @@ export type DiscoverMoviesFilters = NonNullable<DiscoverMoviesFiltersNull>;
 // Movie Genres List
 export type MoviesGenres = paths['/3/genre/movie/list']['get']['responses'][200]['content']['application/json'];
 
-// Search Movie Results
-export type SearchMovies = paths['/3/search/movie']['get']['responses'][200]['content']['application/json'];
+// Search Movie Response
+export type SearchMoviesResponse = paths['/3/search/movie']['get']['responses'][200]['content']['application/json'];

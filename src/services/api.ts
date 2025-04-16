@@ -1,7 +1,7 @@
 import axios from '../api/axios';
 import { SignUpBody } from '../pages/SignUp';
 import { LogInBody } from '../pages/LogIn';
-import { DiscoverMoviesResponse, DiscoverMoviesFilters, MovieDetails, /* MovieVideos, */ MoviesGenres, SearchMovies } from '../types/moviesTypes';
+import { DiscoverMoviesResponse, DiscoverMoviesFilters, MovieDetails, MovieVideos, MoviesGenres, SearchMoviesResponse } from '../types/moviesTypes';
 import { AxiosInstance } from 'axios';
 import { ApiResponse, LogInResponse } from '../types/apiResponse';
 
@@ -12,9 +12,16 @@ export const signUp = async (body: SignUpBody) => {
 };
 
 export const logIn = async (body: LogInBody) => {
-  const res = await axios.post<LogInResponse>('/api/auth/login', body);
+  const res = await axios.post<LogInResponse>('/api/auth/login', body, {
+    withCredentials: true
+  });
   return res.data;
 };
+
+export const logOut = async (axiosInstance: AxiosInstance) => {
+  const res = await axiosInstance.get('api/auth/logout');
+  return res.data;
+}
 
 // Movies
 export const discoverMovies = async (axiosInstance: AxiosInstance, { pageParam, ...filters }: { pageParam: number }) => {
@@ -29,12 +36,17 @@ export const getMovieDetails = async (axiosInstance: AxiosInstance, movieId: str
   return res.data;
 };
 
+export const getMovieVideos = async (axiosInstance: AxiosInstance, movieId: string) => {
+  const res = await axiosInstance.get<ApiResponse<MovieVideos>>(`/movies/videos/${movieId}`);
+  return res.data;
+}
+
 export const getMovieGenres = async (axiosInstance: AxiosInstance) => {
   const res = await axiosInstance.get<ApiResponse<MoviesGenres>>('/movies/genres');
   return res.data;
 };
 
 export const searchMovies = async (axiosInstance: AxiosInstance, query: string) => {
-  const res = await axiosInstance.get<ApiResponse<SearchMovies>>(`/search?query=${query}`);
+  const res = await axiosInstance.get<ApiResponse<SearchMoviesResponse>>(`/movies/search?query=${query}`);
   return res.data;
 };

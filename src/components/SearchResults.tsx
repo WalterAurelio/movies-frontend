@@ -1,14 +1,15 @@
 import { useSearchParams } from 'react-router-dom'
-import { useDiscoverMovies } from '../services/queries';
+import { useSearchMovies } from '../services/queries';
 
 function SearchResults() {
   const [searchParams] = useSearchParams();
   console.log(searchParams.get('q'));
-  const { data, isLoading, error } = useDiscoverMovies();
+  const { data, isLoading, error } = useSearchMovies(searchParams.get('q')!);
+  const results = data?.data.results
 
   return (
     <div>
-      Hola
+      Hola {JSON.stringify(results)}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 // CORRECTO (POR AHORA)
 import { useState } from 'react';
 import { useDiscoverMoviesPaginated } from '../services/queries';
-import MovieArticle from '../components/MovieArticle';
+import MoviesArrayR from '../components/MoviesArrayR';
 
 function MoviesPaginated() {
   const [page, setPage] = useState(1);
@@ -13,13 +13,7 @@ function MoviesPaginated() {
 
   return (
     <div>
-      <div className='flex flex-wrap gap-4'>
-        {
-          movies?.map((movie, index) =>
-            <MovieArticle key={index} movie={movie} />
-          )
-        }
-      </div>
+      <MoviesArrayR movies={movies!} />
       <button
         type='button'
         disabled={page === 1 || isLoading}

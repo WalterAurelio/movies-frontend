@@ -1,5 +1,5 @@
 import { useInfiniteQuery, useQuery, keepPreviousData, useMutation } from '@tanstack/react-query';
-import { signUp, logIn, discoverMovies, getMovieDetails, getMovieGenres, searchMovies } from './api';
+import { signUp, logIn, logOut, discoverMovies, getMovieDetails, getMovieGenres, searchMovies, getMovieVideos } from './api';
 import { DiscoverMoviesFilters } from '../types/moviesTypes';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
@@ -14,6 +14,15 @@ export function useLogIn() {
   return useMutation({
     mutationFn: logIn
   });
+}
+
+export function useLogOut() {
+  const axiosPrivate = useAxiosPrivate();
+
+  return useQuery({
+    queryKey: ['logout'],
+    queryFn: () => logOut(axiosPrivate)
+  })
 }
 
 // Movies (todos correcto)
@@ -36,7 +45,7 @@ export function useDiscoverMovies(filters?: DiscoverMoviesFilters) {
 
 export function useDiscoverMoviesPaginated(page: number, filters?: DiscoverMoviesFilters) {
   const axiosPrivate = useAxiosPrivate();
-
+  
   return useQuery({
     queryKey: ['discoverMovies', { page, ...filters }],
     queryFn: () => discoverMovies(axiosPrivate, { pageParam: page, ...filters }),
@@ -50,6 +59,15 @@ export function useGetMovieDetails(movieId: string) {
   return useQuery({
     queryKey: ['movieDetails', { movieId }],
     queryFn: () => getMovieDetails(axiosPrivate, movieId)
+  });
+}
+
+export function useGetMovieVideos(movieId: string) {
+  const axiosPrivate = useAxiosPrivate();
+
+  return useQuery({
+    queryKey: ['movieVideos', { movieId }],
+    queryFn: () => getMovieVideos(axiosPrivate, movieId)
   });
 }
 

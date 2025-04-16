@@ -1,4 +1,4 @@
-// CORRECTO (POR AHORA)
+/* // CORRECTO (POR AHORA)
 import { useNavigate } from 'react-router-dom';
 import { useDiscoverMovies } from '../services/queries';
 import MovieArticle from './MovieArticle';
@@ -39,3 +39,4 @@ function MoviesArray() {
   );
 }
 export default MoviesArray;
+ */

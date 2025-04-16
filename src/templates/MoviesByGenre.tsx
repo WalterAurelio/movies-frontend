@@ -1,9 +1,9 @@
 // CORRECTO (POR AHORA)
 import { Link, useLocation } from 'react-router-dom';
 import { useDiscoverMoviesPaginated } from '../services/queries';
-import MovieArticle from '../components/MovieArticle';
 import { useMoviesPageStore } from '../store/MoviesPageStore';
 import { useShallow } from 'zustand/shallow';
+import MoviesArrayR from '../components/MoviesArrayR';
 
 function MoviesByGenre() {
   const location = useLocation();
@@ -23,13 +23,7 @@ function MoviesByGenre() {
       <p>Página: {page}</p>
       <h2 className='text-2xl'>{genreName}</h2>
       <Link to='/movies'>Ir a Películas</Link>
-      <div className='flex flex-wrap gap-4'>
-        {
-          movies?.map((movie, index) =>
-            <MovieArticle key={index} movie={movie} />
-          )
-        }
-      </div>
+      <MoviesArrayR movies={movies!} />
       <button
         type='button'
         disabled={page === 1 || isLoading}
