@@ -1,7 +1,10 @@
+// SÍ
 import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
 const variants = cva([
+  'text-sm',
+  'lg:text-base',
   'font-bold',
   'py-3',
   'px-4',
