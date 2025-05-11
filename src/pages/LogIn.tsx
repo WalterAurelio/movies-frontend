@@ -10,6 +10,7 @@ import Button from '../components/Button';
 import GenreTag from '../components/GenreTag';
 import GenreFilter from '../components/GenreFilter';
 import Input from '../components/Input';
+import Search from '../components/Search';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -51,6 +52,7 @@ function LogIn() {
       <GenreTag>Comedia</GenreTag>
       <GenreFilter variant={'active'} >Acción</GenreFilter>
       <Input placeholder='Correo electrónico' />
+      <Search />
       
       <div>
         <label htmlFor='email'>Email:</label>
