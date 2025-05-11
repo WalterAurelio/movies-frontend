@@ -1,1 +1,17 @@
 @import 'tailwindcss';
+
+/* Reset */
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom */
+
+@theme {
+  --color-negro-main: #17171b;
+  --color-blanco-main: #fff;
+  --color-gris-placeholder: #90949c;
+  --color-gris-border: #dddfe2;
+  --color-blanco-traslucido: rgba(255, 255, 255, 0.12);
+}

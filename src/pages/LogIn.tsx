@@ -6,6 +6,7 @@ import { useLogIn } from '../services/queries';
 import { useAuthProvider } from '../store/AuthProviderStore';
 import { useShallow } from 'zustand/shallow';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -42,6 +43,9 @@ function LogIn() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
+
+      <Button type='button' variant={'primary'}>Iniciar sesión</Button>
+      
       <div>
         <label htmlFor='email'>Email:</label>
         <input { ...register('email') } type='email' id='email' placeholder='Ingrese su email' />
