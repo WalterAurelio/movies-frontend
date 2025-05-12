@@ -10,6 +10,7 @@ body {
 
 @theme {
   --color-negro-main: #17171b;
+  --color-negro-genero: #1e1f24;
   --color-blanco-main: #fff;
   --color-rojo-main: #dc143c;
   --color-gris-placeholder: #90949c;

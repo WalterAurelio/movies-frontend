@@ -11,6 +11,11 @@ import GenreTag from '../components/GenreTag';
 import GenreFilter from '../components/GenreFilter';
 import Input from '../components/Input';
 import Search from '../components/Search';
+import PeliculaFeatured from '../components/PeliculaFeatured';
+import PeliculaResultadoBusqueda from '../components/PeliculaResultadoBusqueda';
+import AnteriorSiguiente from '../components/AnteriorSiguiente';
+import Filtro from '../components/Filtro';
+import Genero from '../components/Genero';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -53,7 +58,11 @@ function LogIn() {
       <GenreFilter variant={'active'} >Acción</GenreFilter>
       <Input placeholder='Correo electrónico' />
       <Search />
-      
+      <PeliculaResultadoBusqueda />
+      <AnteriorSiguiente />
+      <Filtro />
+      <Genero />
+
       <div>
         <label htmlFor='email'>Email:</label>
         <input { ...register('email') } type='email' id='email' placeholder='Ingrese su email' />
