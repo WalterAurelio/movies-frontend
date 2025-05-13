@@ -16,6 +16,7 @@ import PeliculaResultadoBusqueda from '../components/PeliculaResultadoBusqueda';
 import AnteriorSiguiente from '../components/AnteriorSiguiente';
 import Filtro from '../components/Filtro';
 import Genero from '../components/Genero';
+import BackButton from '../components/BackButton';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -62,6 +63,7 @@ function LogIn() {
       <AnteriorSiguiente />
       <Filtro />
       <Genero />
+      <BackButton />
 
       <div>
         <label htmlFor='email'>Email:</label>

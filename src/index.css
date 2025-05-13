@@ -10,10 +10,12 @@ body {
 
 @theme {
   --color-negro-main: #17171b;
-  --color-negro-genero: #1e1f24;
+  --color-negro-genre: #1e1f24;
   --color-blanco-main: #fff;
   --color-rojo-main: #dc143c;
   --color-gris-placeholder: #90949c;
   --color-gris-border: #dddfe2;
+
+  --color-negro-traslucido: rgba(30, 31, 36, 0.60);
   --color-blanco-traslucido: rgba(255, 255, 255, 0.12);
 }
