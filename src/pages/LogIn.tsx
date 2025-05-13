@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useLogIn } from '../services/queries';
 import { useAuthProvider } from '../store/AuthProviderStore';
 import { useShallow } from 'zustand/shallow';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Form, useLocation, useNavigate } from 'react-router-dom';
 import Button from '../components/Button';
 import GenreTag from '../components/GenreTag';
 import GenreFilter from '../components/GenreFilter';
@@ -17,6 +17,9 @@ import AnteriorSiguiente from '../components/AnteriorSiguiente';
 import Filtro from '../components/Filtro';
 import Genero from '../components/Genero';
 import BackButton from '../components/BackButton';
+import Separador from '../components/Separador';
+import FormContainer from '../components/FormContainer';
+import ImageStack from '../interfaces/ImageStack';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -63,7 +66,10 @@ function LogIn() {
       <AnteriorSiguiente />
       <Filtro />
       <Genero />
+      <Separador />
+      <FormContainer></FormContainer>
       <BackButton />
+      <ImageStack />
 
       <div>
         <label htmlFor='email'>Email:</label>
