@@ -1,6 +1,6 @@
 import axios from '../api/axios';
 import { SignUpBody } from '../pages/SignUp';
-import { LogInBody } from '../pages/LogIn';
+import { LogInBody } from '../interfaces/LogInForm';
 import { DiscoverMoviesResponse, DiscoverMoviesFilters, MovieDetails, MovieVideos, MoviesGenres, SearchMoviesResponse } from '../types/moviesTypes';
 import { AxiosInstance } from 'axios';
 import { ApiResponse, LogInResponse } from '../types/apiResponse';

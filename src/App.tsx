@@ -7,7 +7,7 @@ import MoviesLayout from './layout/MoviesLayout';
 import Navbar from './components/Navbar';
 import GenreMovies from './components/GenreMovies';
 import SignUp from './pages/SignUp';
-import LogIn from './pages/LogIn';
+import LogInPage from './pages/LogInPage';
 import SearchResults from './components/SearchResults';
 import RequireAuth from './components/RequireAuth';
 
@@ -18,7 +18,7 @@ function App() {
 
       <Routes>
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/login' element={<LogIn />} />
+        <Route path='/login' element={<LogInPage />} />
 
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
