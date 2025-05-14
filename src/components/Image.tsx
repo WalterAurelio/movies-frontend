@@ -16,7 +16,8 @@ const variants = cva([
         'aspect-2/3'
       ],
       horizontal: [
-        'aspect-3/2'
+        'aspect-3/2',
+        'min-w-[123.83px]'
       ]
     }
   },

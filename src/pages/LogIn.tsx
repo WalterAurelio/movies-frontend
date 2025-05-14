@@ -20,6 +20,8 @@ import BackButton from '../components/BackButton';
 import Separador from '../components/Separador';
 import FormContainer from '../components/FormContainer';
 import ImageStack from '../interfaces/ImageStack';
+import LogInForm from '../interfaces/LogInForm';
+import SignUpForm from '../interfaces/SignUpForm';
 
 const schema = z.object({
   email: z.string().email().min(1),
@@ -67,7 +69,8 @@ function LogIn() {
       <Filtro />
       <Genero />
       <Separador />
-      <FormContainer></FormContainer>
+      <LogInForm />
+      <SignUpForm />
       <BackButton />
       <ImageStack />
 

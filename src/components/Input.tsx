@@ -7,7 +7,6 @@ function Input({ errorMessage, ...props }: InputProps) {
   return (
     <>
       <input 
-        type='text'
         className='p-3 text-sm lg:text-base bg-blanco-main rounded-lg border-gris-border border-1 placeholder-gris-placeholder outline-0'
         { ...props }
       />

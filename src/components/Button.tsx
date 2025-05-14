@@ -10,7 +10,8 @@ const variants = cva([
   'px-4',
   'rounded-lg',
   'min-w-30',
-  'text-blanco-main'
+  'text-blanco-main',
+  'cursor-pointer'
 ], {
   variants: {
     variant: {
