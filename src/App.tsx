@@ -11,15 +11,16 @@ import SignUp from './pages/SignUp';
 import LogInPage from './pages/LogInPage';
 import SearchResults from './components/SearchResults';
 import RequireAuth from './components/RequireAuth';
+import SignUpPage from './pages/SignUpPage';
 
 function App() {
   return (
     <>
       <NavTwo />
-      <Navbar />
+      {/* <Navbar /> */}
 
       <Routes>
-        <Route path='/signup' element={<SignUp />} />
+        <Route path='/signup' element={<SignUpPage />} />
         <Route path='/login' element={<LogInPage />} />
 
         {/* Protected Routes */}

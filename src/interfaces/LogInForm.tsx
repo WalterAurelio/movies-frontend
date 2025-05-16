@@ -23,10 +23,12 @@ const schema = z.object({
     })
     .min(1, requiredMsg)
     .email({ message: email.invalidMsg }),
-  password: z.string({
-    invalid_type_error: invalidMsg,
-    required_error: requiredMsg
-  }).min(5, password.minCharactersMsg(5))
+  password: z
+    .string({
+      invalid_type_error: invalidMsg,
+      required_error: requiredMsg
+    })
+    .min(5, password.minCharactersMsg(5))
 });
 
 export type LogInBody = z.infer<typeof schema>;
@@ -74,7 +76,7 @@ function LogInForm() {
       <Button
         type='button'
         variant={'primary'}
-        onClick={() => {}}
+        onClick={() => navigate('/signup')}
       >
         Crear cuenta
       </Button>
