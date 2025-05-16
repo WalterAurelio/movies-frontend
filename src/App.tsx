@@ -4,7 +4,8 @@ import Profile from './pages/Profile';
 import MovieDetails from './pages/MovieDetails';
 import Movies from './pages/Movies';
 import MoviesLayout from './layout/MoviesLayout';
-import Navbar from './components/Navbar';
+import { default as NavTwo } from './components/Navbar';
+import Navbar from './interfaces/Navbar';
 import GenreMovies from './components/GenreMovies';
 import SignUp from './pages/SignUp';
 import LogInPage from './pages/LogInPage';
@@ -14,6 +15,7 @@ import RequireAuth from './components/RequireAuth';
 function App() {
   return (
     <>
+      <NavTwo />
       <Navbar />
 
       <Routes>
