@@ -1,6 +1,6 @@
+// SÍ
 import Image from '../components/Image'
 
-// SÍ
 function ImageStack() {
   return (
     <div className='w-97 h-auto flex flex-wrap gap-2'>

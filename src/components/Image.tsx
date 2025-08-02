@@ -1,6 +1,7 @@
 // SÍ
 import { VariantProps, cva } from 'class-variance-authority';
 import { PropsWithChildren } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const variants = cva([
   'bg-gris-placeholder',
@@ -8,7 +9,7 @@ const variants = cva([
   'p-4',
   'flex',
   'flex-col',
-  'justify-end'
+  'justify-end',
 ], {
   variants: {
     orientation: {
@@ -26,11 +27,13 @@ const variants = cva([
   }
 });
 
-type ImageProps = PropsWithChildren & VariantProps<typeof variants>;
+type ImageProps = PropsWithChildren & VariantProps<typeof variants> & {
+  className?: string;
+};
 
-function Image({ orientation, children }: ImageProps) {
+function Image({ className, orientation, children }: ImageProps) {
   return (
-    <div className={variants({ orientation })}>
+    <div className={twMerge(variants({ orientation, className }))}>
       {children}
     </div>
   )

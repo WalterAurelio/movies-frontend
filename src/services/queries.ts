@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery, keepPreviousData, useMutation } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery, keepPreviousData, useMutation, useSuspenseInfiniteQuery } from '@tanstack/react-query';
 import { signUp, logIn, logOut, discoverMovies, getMovieDetails, getMovieGenres, searchMovies, getMovieVideos } from './api';
 import { DiscoverMoviesFilters } from '../types/moviesTypes';
 import useAxiosPrivate from '../hooks/useAxiosPrivate';
@@ -29,7 +29,7 @@ export function useLogOut() {
 export function useDiscoverMovies(filters?: DiscoverMoviesFilters) {
   const axiosPrivate = useAxiosPrivate();
 
-  return useInfiniteQuery({
+  return useSuspenseInfiniteQuery({
     queryKey: ['moviesDiscover'],
     queryFn: ({ pageParam }) => discoverMovies(axiosPrivate, { pageParam, ...filters }),
     initialPageParam: 1,

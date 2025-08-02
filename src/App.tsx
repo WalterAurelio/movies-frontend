@@ -12,20 +12,24 @@ import LogInPage from './pages/LogInPage';
 import SearchResults from './components/SearchResults';
 import RequireAuth from './components/RequireAuth';
 import SignUpPage from './pages/SignUpPage';
+import Home_2 from './pages/Home_2';
+import { Suspense } from 'react';
 
 function App() {
   return (
     <>
       <NavTwo />
-      {/* <Navbar /> */}
+      <Navbar />
 
       <Routes>
         <Route path='/signup' element={<SignUpPage />} />
         <Route path='/login' element={<LogInPage />} />
 
+
+
         {/* Protected Routes */}
         <Route element={<RequireAuth />}>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Suspense fallback={'Cargando...'}><Home_2 /></Suspense>} />
           <Route path='/profile' element={<Profile />} />
 
           <Route path='/movies' element={<MoviesLayout />}>

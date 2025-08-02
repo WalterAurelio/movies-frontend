@@ -1,6 +1,7 @@
 @import 'tailwindcss';
 
 /* Reset */
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: #17171b;
@@ -18,4 +19,14 @@ body {
 
   --color-negro-traslucido: rgba(30, 31, 36, 0.60);
   --color-blanco-traslucido: rgba(255, 255, 255, 0.12);
+
+  /* New */
+
+  --color-neon-orange-500: #df7701;
+  --color-neon-orange-200: #feab4d;
+
+  --color-grey-border: #858585;
+  --color-grey-text: #cecece;
+
+  --color-main-white: #ffffff;
 }

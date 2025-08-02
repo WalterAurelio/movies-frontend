@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import MoviesArrayR from '../components/MoviesArrayR';
 import SearchBar from '../components/SearchBar';
 import { useDiscoverMovies } from '../services/queries';
+// import SeccionPeliculasDestacadas from '../interfaces/SeccionPeliculasDestacadas';
 
 function Home() {
   const { data, isLoading, error, fetchNextPage, isFetchingNextPage } = useDiscoverMovies();
@@ -21,7 +22,8 @@ function Home() {
 
   return (
     <div>
-      <SearchBar />      
+      <SearchBar />
+      {/* <SeccionPeliculasDestacadas sectionTitle='Principales' movies={movies} /> */}
       {/* <MoviesArray /> */}
       <MoviesArrayR movies={movies!} />
       <button

@@ -1,4 +1,5 @@
 // CORRECTO
+import Button from '../components/new/Button';
 import LogInForm from '../interfaces/LogInForm';
 
 function LogInPage() {
@@ -8,6 +9,7 @@ function LogInPage() {
         <h1 className='text-[48.83px] lg:text-[61.04px] font-bold leading-[100%]'>MooBees</h1>
         <p className='text-sm lg:text-base leading-[200%]'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac eros viverra, iaculis ligula efficitur, euismod lectus.</p>
       </div>
+      <Button />
 
       <LogInForm />
     </div>

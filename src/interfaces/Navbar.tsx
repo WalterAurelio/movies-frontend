@@ -15,7 +15,7 @@ function Navbar() {
           </Link>
         </li>
         <li className='hidden lg:block lg:order-2'>
-          <Link to='/'>
+          <Link to='/movies'>
             <img src={movieIcon} alt='movie-icon' />
           </Link>
         </li>
