@@ -11,9 +11,6 @@ const meta: Meta<StoryProps> = {
 type Story = StoryObj<StoryProps>;
 
 export const Primary: Story = {
-  args: {
-
-  },
   render: () => <SearchBar />
 }
 
