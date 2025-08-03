@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
-import SearchBar from '../components/new/SearchBar';
+import SearchBar from '../components/SearchBar/SearchBar';
 import { ComponentProps } from 'react';
 
 type StoryProps = ComponentProps<typeof SearchBar>;

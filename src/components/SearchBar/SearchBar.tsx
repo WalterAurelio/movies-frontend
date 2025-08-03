@@ -33,8 +33,6 @@ function SearchBar() {
     setInputValue(e.target.value);
   };
 
-  console.log(inputValue)
-
   return (
     <div className={twMerge(variants())}>
       <input

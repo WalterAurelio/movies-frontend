@@ -17,7 +17,7 @@ const variants = cva([
   'font-semibold'
 ], {
   variants: {
-    style: {
+    variant: {
       fill: ['bg-neon-orange-500'],
       outline: [
         'border',
@@ -35,12 +35,12 @@ const variants = cva([
   },
   compoundVariants: [
     {
-      style: 'fill',
+      variant: 'fill',
       state: 'default',
       class: ['hover:bg-neon-orange-200']
     },
     {
-      style: 'outline',
+      variant: 'outline',
       state: 'default',
       class: [
         'hover:border-neon-orange-500',
@@ -48,7 +48,7 @@ const variants = cva([
       ]
     },
     {
-      style: 'fill',
+      variant: 'fill',
       state: 'disabled',
       class: [
         'bg-grey-border',
@@ -56,7 +56,7 @@ const variants = cva([
       ]
     },
     {
-      style: 'outline',
+      variant: 'outline',
       state: 'disabled',
       class: [
         'border-grey-text',
@@ -65,7 +65,7 @@ const variants = cva([
       ]
     },
     {
-      style: 'minimal',
+      variant: 'minimal',
       state: 'disabled',
       class: [
         'text-grey-text',
@@ -74,16 +74,16 @@ const variants = cva([
     }
   ],
   defaultVariants: {
-    style: 'fill',
+    variant: 'fill',
     state: 'default'
   }
 });
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof variants>;
 
-function Button({ style, state, children, ...props }: ButtonProps) {
+function Button({ variant, state, children, ...props }: ButtonProps) {
   return (
-    <button className={twMerge(variants({ style, state }))} {...props}>
+    <button className={twMerge(variants({ variant, state }))} {...props}>
       {children}
     </button>
   )

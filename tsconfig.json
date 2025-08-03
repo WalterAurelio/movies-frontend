@@ -5,7 +5,8 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "module": "ESNext",
+    "types": ["vitest/globals", "node"],
+    "module": "ES2015", // Si no anda, intentar "module": "ESNext"
     "moduleResolution": "bundler",
     "noUncheckedIndexedAccess": true
   }

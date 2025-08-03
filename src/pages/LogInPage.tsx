@@ -1,5 +1,5 @@
 // CORRECTO
-import Button from '../components/new/Button';
+import Button from '../components/Button/Button';
 import LogInForm from '../interfaces/LogInForm';
 
 function LogInPage() {
