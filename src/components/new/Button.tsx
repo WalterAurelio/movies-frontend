@@ -13,20 +13,15 @@ const variants = cva([
   'text-main-white',
   'rounded-2xl',
   'select-none',
-  'cursor-pointer',
-  'font-bold'
+  'font-bold',
+  'font-overused-grotesk'
 ], {
   variants: {
     style: {
-      fill: [
-        'bg-neon-orange-500',
-        'hover:bg-neon-orange-200'
-      ],
+      fill: ['bg-neon-orange-500'],
       outline: [
         'border',
-        'border-grey-border',
-        'hover:border-neon-orange-500',
-        'hover:text-neon-orange-500'
+        'border-grey-border'
       ],
       minimal: [
         'text-neon-orange-500',
@@ -34,10 +29,24 @@ const variants = cva([
       ]
     },
     state: {
+      default: ['cursor-pointer'],
       disabled: ['cursor-default']
     }
   },
   compoundVariants: [
+    {
+      style: 'fill',
+      state: 'default',
+      class: ['hover:bg-neon-orange-200']
+    },
+    {
+      style: 'outline',
+      state: 'default',
+      class: [
+        'hover:border-neon-orange-500',
+        'hover:text-neon-orange-500'
+      ]
+    },
     {
       style: 'fill',
       state: 'disabled',
@@ -65,13 +74,12 @@ const variants = cva([
     }
   ],
   defaultVariants: {
-    style: 'fill'
+    style: 'fill',
+    state: 'default'
   }
 });
 
-export type CVAVariantsProps = VariantProps<typeof variants>
-
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & CVAVariantsProps;
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & VariantProps<typeof variants>;
 
 function Button({ style, state, children, ...props }: ButtonProps) {
   return (

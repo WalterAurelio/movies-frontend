@@ -1,5 +1,12 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('./assets/fonts/OverusedGrotesk-SemiBold.ttf');
+  font-style: normal;
+  font-weight: 600;
+}
+
 /* Reset */
 
 body {
@@ -29,4 +36,6 @@ body {
   --color-grey-text: #cecece;
 
   --color-main-white: #ffffff;
+
+  --font-overused-grotesk: 'Overused Grotesk'
 }
