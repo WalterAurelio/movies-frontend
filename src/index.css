@@ -7,6 +7,13 @@
   font-weight: 600;
 }
 
+@font-face {
+  font-family: 'Overused Grotesk';
+  src: url('./assets/fonts/OverusedGrotesk-Medium.ttf');
+  font-style: normal;
+  font-weight: 500;
+}
+
 /* Reset */
 
 body {
@@ -32,6 +39,7 @@ body {
   --color-neon-orange-500: #df7701;
   --color-neon-orange-200: #feab4d;
 
+  --color-grey-background: #3f4041;
   --color-grey-border: #858585;
   --color-grey-text: #cecece;
 

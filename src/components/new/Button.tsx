@@ -13,8 +13,8 @@ const variants = cva([
   'text-main-white',
   'rounded-2xl',
   'select-none',
-  'font-bold',
-  'font-overused-grotesk'
+  'font-overused-grotesk',
+  'font-semibold'
 ], {
   variants: {
     style: {
